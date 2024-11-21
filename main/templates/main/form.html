@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Generator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        form {
+            display: grid;
+            grid-gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        textarea,
+        select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            min-height: 150px;
+        }
+
+        button[type="submit"] {
+            display: block;
+            width: 150px;
+            margin: 30px auto 0;
+            padding: 10px 20px;
+            background-color: #1e90ff;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            form {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>HTML Generator</h1>
+        <p>Generate your HTML page here:</p>
+        <form method="post">
+            {% csrf_token %}
+            <!-- This is a placeholder, in a real Django app this would be rendered by the template engine -->
+            <label for="id_title">Page title:</label>
+            <input type="text" name="title" id="id_title" required>
+
+            <label for="id_description">Page content:</label>
+            <textarea name="description" id="id_description" rows="4" required></textarea>
+
+            <label for="id_style">Page style:</label>
+            <textarea name="style" id="id_style" rows="4" required></textarea>
+
+            <button type="submit">Generate</button>
+        </form>
+    </div>
+</body>
+</html>
